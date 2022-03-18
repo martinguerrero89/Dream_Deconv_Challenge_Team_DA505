@@ -16,6 +16,7 @@ Team DA_505 submissions to DREAM Challenge Tumor Deconvolution
 
     R >= 4.0.0
     glmnet
+    e1071
 
 ### Usage Script Mode:
 
@@ -25,33 +26,43 @@ Move to the folder where you have cloned the repository
 
 You should provide expression data in a comma-separated file with columns associated to sample ID and rows to genes specified using ENSG codes. An example expression matrix is located in the `input` folder.
 
-Then you can run the script `phase1_cps_run.R` for models from **phase1** or `phase2_cps_run.R` for models used during **phase3** and **validation**. The scripts support the following parameters:
+Then you can run the script `cps_run.R` The scripts support the following parameters:
 
     Options:
-        --input=INPUT
-            Set the name of the expresion data file in CSV format
+    	--input=INPUT
+    		Set the name of the expresion data file in CSV format
 
-        --finegrain
-            Set the type to fine grain
+    	--finegrain
+    		Set the type to fine grain
 
-        --coarsegrain
-            Set the type to coarse grain [DEFAULT]
+    	--coarsegrain
+    		Set the type to coarse grain
 
-        --output=OUTPUT
-            Set the name of the output data file in CSV format. You can specify a directory name in the ouput and it will be created by the script.
+    	--glmnet
+    		Use glmnet pre-trained model
 
-        -h, --help
-            Show this help message and exit
+    	--svr
+    		Use SVR pre-trained model
+
+    	--output=OUTPUT
+    		Set the name of the output data file in CSV format. You can specify a directory name in the ouput and it will be created by the script.
+
+    	-h, --help
+    		Show this help message and exit
 
 #### Examples:
 
-For using a model from phase1 with the fine grain you can run the following example in the command line.
+For using the GLMNET model (default) with for fine grain results you can run the following example in the command line.
 
-    Rscript ./phase1_cps_run.R --input=input/example.csv --output=tmp/coarse_results.csv --finegrain
+    Rscript ./_cps_run.R --input=input/example.csv --output=tmp/coarse_results.csv --finegrain
 
-Alternatively, you can try coarse grain results using the following command:
+Alternatively, you can run for coarse grain results using the following command:
 
-    Rscript ./phase1_cps_run.R --input=input/example.csv --output=tmp/coarse_results.csv --coarserain
+    Rscript ./cps_run.R --input=input/example.csv --output=tmp/coarse_results.csv --coarserain
+
+you can try SVR model for coarse grain results using the following command:
+
+    Rscript ./cps_run.R --input=input/example.csv --output=tmp/coarse_svr_results.csv --coarserain --svr
 
 ### Using the functions
 
@@ -65,7 +76,7 @@ Load expression data from CSV file respecting the format already mentioned.
 
 Run CPS function specifying if 'coarse' or 'fine' grained predictions are desired
 
-    prediction_data <-do_CPS(expression_matrix, type="coarse")
+    prediction_data <-do_CPS(expression_matrix, type="coarse", model="glmnet")
 
 A dataframe with predictions is returned.
 
