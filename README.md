@@ -52,7 +52,7 @@ Then you can run the script `cps_run.R` The scripts support the following parame
 
 #### Examples:
 
-For using the GLMNET model (default) with for fine grain results you can run the following example in the command line.
+For using the GLMNET model (default) for fine grain results you can run the following example in the command line.
 
     Rscript ./_cps_run.R --input=input/example.csv --output=tmp/coarse_results.csv --finegrain
 
