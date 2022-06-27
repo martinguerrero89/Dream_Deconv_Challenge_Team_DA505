@@ -21,9 +21,7 @@ Team DA_505 submissions to DREAM Challenge Tumor Deconvolution
 
 3. Installation time
 
-The expected installation time on a AMD Ryzen 7 with 32Gb running Linux OS is
-
- 1m (install base R) + 3m (packages) + github
+The expected installation time on a AMD Ryzen 7 with 32Gb running Linux OS is about 10min
 
 ### Usage Script Mode:
 
@@ -126,8 +124,8 @@ The expected output for all the models is located in the `output/` directory
 
 ## Running time
 
-Average run time for the `input/example.csv` dataset on a AMD Ryzen 7 with 32Gb is
+Average run time for the `input/example.csv` dataset on a AMD Ryzen 7 with 32Gb:
 
-svr    : 0m18,122s
+1. SVR    : 0m18,122s
 
-glmnet : 0m2.,078s
+2. GLMNET : 0m2.,078s
