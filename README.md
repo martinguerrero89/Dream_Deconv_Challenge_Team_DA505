@@ -104,8 +104,8 @@ For the fine-grain case you just need to use:
 
 and the function should return a data frame like this:
 
-|                         |"Sample_1"         |"Sample_2"
---------------------------------------------------------------------|
+|                         |"Sample_1"         |"Sample_2"	    |
+|-------------------------|-------------------|---------------------|
 |"memory.B.cells"         |0.125474944057753  |0.0721011833308564   |
 |"naive.B.cells"          |0.145859491671783  |0.138665106826305    |
 |"memory.CD4.T.cells"     |0.196207716894681  |0.176457029951721    |
@@ -129,4 +129,5 @@ The expected output for all the models is located in the `output/` directory
 Average run time for the `input/example.csv` dataset on a AMD Ryzen 7 with 32Gb is
 
 svr    : 0m18,122s
+
 glmnet : 0m2.,078s
